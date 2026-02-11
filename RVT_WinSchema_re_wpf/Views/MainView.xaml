@@ -1,0 +1,10 @@
+﻿<Window x:Class="RVT_WinSchema_re_wpf.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Схемы окон" Height="200" Width="300">
+    <StackPanel Margin="10">
+        <CheckBox Content="Вычислить площадь" IsChecked="{Binding CalculateArea}" />
+        <CheckBox Content="Учитывать монтажные зазоры" IsChecked="{Binding IncludeGaps}" />
+        <Button Content="Сгенерировать схему" Command="{Binding GenerateSchemaCommand}" Margin="0,10,0,0"/>
+    </StackPanel>
+</Window>
