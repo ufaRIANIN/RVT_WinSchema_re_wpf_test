@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using RVT_WinSchema_re_wpf.Helpers;
+using System.Windows;
 
 namespace RVT_WinSchema_re_wpf.Views
 {
@@ -10,6 +11,8 @@ namespace RVT_WinSchema_re_wpf.Views
         public MainView()
         {
             InitializeComponent();
+
+            DataContext = MainViewModelHelper.MainViewModel;
         }
     }
 }

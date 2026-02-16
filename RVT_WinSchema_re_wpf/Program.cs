@@ -72,14 +72,14 @@ namespace RVT_WinSchema_re_wpf
             // Создаём VM
             MainViewModelHelper.Constuct();
 
-            // Создаём WPF окно
-            var mainView = new Views.MainView
-            {
-                DataContext = MainViewModelHelper.MainViewModel
-            };
+            //// Создаём WPF окно
+            //var mainView = new Views.MainView
+            //{
+            //    DataContext = MainViewModelHelper.MainViewModel
+            //};
 
-            // Показываем окно модально, если нужно
-            mainView.ShowDialog();
+            //// Показываем окно модально, если нужно
+            //mainView.ShowDialog();
         }
     }
 }

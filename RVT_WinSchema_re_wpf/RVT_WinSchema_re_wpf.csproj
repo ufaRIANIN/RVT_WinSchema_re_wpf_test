@@ -71,6 +71,7 @@
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <None Include="Notes\CommitsNotes.md" />
+    <Compile Include="Models\RevitViewModel.cs" />
     <Compile Include="Models\WindowSchemaSettings.cs" />
     <Compile Include="Services\ServiceLocator.cs" />
     <Compile Include="Services\RevitItemsService.cs" />

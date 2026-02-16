@@ -20,7 +20,7 @@ namespace RVT_WinSchema_re_wpf
 
         public static string Category()
         {
-            return "Общее";
+            return "Тестовые";
         }
 
         public static string Name()

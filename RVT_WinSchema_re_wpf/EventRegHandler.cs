@@ -17,10 +17,25 @@ namespace RVT_WinSchema_re_wpf
 
         public WindowSchemaSettings Settings { get; set; } = new WindowSchemaSettings();
 
+        public int SelectedViewId { get; set; }
+
         public void Execute(UIApplication uiapp)
         {
             try
             {
+                try
+                {
+                    var view = new Views.MainView();
+                    view.ShowDialog();
+
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("Ошибка", ex.Message);
+                }
+            
+
                 var revitService = ServiceLocator.Instance.Single<IRevitItemsService>();
                 UIDocument uidoc = revitService.GetUIDocument();
                 Document doc = revitService.GetDocument();
@@ -30,14 +45,11 @@ namespace RVT_WinSchema_re_wpf
                     t.Start();
 
                     // 1️ Находим вид "Схемы окон"
-                    RevitView windowSchemaView = new FilteredElementCollector(doc)
-                        .OfClass(typeof(RevitView))
-                        .Cast<RevitView>()
-                        .FirstOrDefault(v => v.Name == "Схемы окон");
+                    RevitView windowSchemaView = doc.GetElement(new ElementId(SelectedViewId)) as RevitView;
 
                     if (windowSchemaView == null)
                     {
-                        TaskDialog.Show("Ошибка", "Вид 'Схемы окон' не найден");
+                        TaskDialog.Show("Ошибка", "Выбранный вид не найден");
                         t.RollBack();
                         return;
                     }
